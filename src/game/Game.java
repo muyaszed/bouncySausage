@@ -6,6 +6,8 @@
 package game;
 
 import java.awt.Canvas;
+import java.awt.Dimension;
+import javax.swing.JFrame;
 
 /**
  *
@@ -21,7 +23,17 @@ public class Game {
     
     public void start() {
         //init windows
-        
+        Dimension gameSize = new Dimension(Game.WIDTH, Game.HEIGHT);
+        JFrame gameWindow = new JFrame(gameName);
+        gameWindow.setSize(gameSize);
+        gameWindow.setResizable(false);
+        gameWindow.setVisible(true);
+        game.setSize(gameSize);
+        game.setMinimumSize(gameSize);
+        game.setMaximumSize(gameSize);
+        game.setPreferredSize(gameSize);
+        gameWindow.add(game);
+        gameWindow.setLocationRelativeTo(null);
         
         //Game loop
         boolean running = true;
